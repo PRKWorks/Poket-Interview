@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  Poket Interview
+//  SignUp Proto
 //
 //  Created by Ram Kumar on 30/07/21.
 //
@@ -143,7 +143,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     // MARK: - SignUp
 
     @IBAction func signUp(_ sender: Any) {
-        if((imageView.image != nil)&&(nameTF.text?.count != 0)&&(genderTF.text?.count != 0)&&(dobTF.text?.count != 0)&&(mobileNumberTF.text?.count != 0)&&(emailTF.text?.count != 0)&&isValidEmail&&isValidPhone&&isValidPassword){
+        if((imageView.image != nil) && (nameTF.text?.count != 0) &&
+            (genderTF.text?.count != 0) && (dobTF.text?.count != 0) && (mobileNumberTF.text?.count != 0) && (emailTF.text?.count != 0) &&
+            isValidEmail && isValidPhone && isValidPassword){
 
             triggerSignUp()
 
@@ -158,9 +160,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 showAlert(title: "Not a valid Password", message: "Password must be Minimum 8 characters at least 1 Alphabet and 1 Number")
                 return
             }else{
-
+                showAlert(title: "", message: "Some Fields are missing or Not Valid")
             }
-            showAlert(title: "", message: "Some Fields are missing or Not Valid")
         }
 
     }
@@ -175,7 +176,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     func triggerSignUp(){
         //URL
-        let url = URL(string: "https://brandsuat.poket.com/main/Intrview/TestSignUpCmd")
+        let url = URL(string: "http://localhost:3000/SignUp")
         guard url != nil  else {
             print("URL Error")
             return
@@ -184,7 +185,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         //Specify the Header
-        let header = ["host" : "brandsuat.poket.com","accept" : "string","content-type":"application/json"]
+        let header = ["host" : "http://localhost:3000","accept" : "string","content-type":"application/json"]
         request.allHTTPHeaderFields = header
         
         let image : UIImage = imageView.image!

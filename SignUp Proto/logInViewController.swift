@@ -1,6 +1,6 @@
 //
 //  logInViewController.swift
-//  Poket Interview
+//  SignUp Proto
 //
 //  Created by Ram Kumar on 03/08/21.
 //
@@ -52,7 +52,7 @@ class logInViewController: UIViewController {
 
     func triggerLogIn(){
         //URL
-        let url = URL(string: "https://brandsuat.poket.com/main/Intrview/TestLoginCmd")
+        let url = URL(string: "http://localhost:3000/Login")
         guard url != nil  else {
             print("URL Error")
             return
@@ -61,7 +61,7 @@ class logInViewController: UIViewController {
         var request = URLRequest(url: url!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10)
         
         //Specify the Header
-        let header = ["host" : "brandsuat.poket.com","accept" : "string","content-type":"application/json"]
+        let header = ["host" : "http://localhost:3000","accept" : "string","content-type":"application/json"]
         request.allHTTPHeaderFields = header
         
         //Specify the Body
